@@ -3,14 +3,14 @@ import pyorient
 import sys
 
 client = pyorient.OrientDB("localhost", 2424)
-session_id = client.connect("root", "admin")
+session_id = client.connect("root", "Jiangyu")
 db_name = "soufun"
 db_username = "admin"
 db_password = "admin"
 
 if client.db_exists( db_name, pyorient.STORAGE_TYPE_MEMORY ):
 	client.db_open( db_name, db_username, db_password )
-	print db_name + " opened successfully"
+	print db_name + "opened successfully"
 else:
 	print "database [" + db_name + "] does not exist! session ending..."
 	sys.exit()
@@ -39,6 +39,30 @@ print 'received ' + str(numListings) + ' records'
 for record in records:
 	print record.price
 
+maxPrice = 0
+minPrice = 999999
+tolPrice = 0
+
+for record in records:
+	print record.price
+	tolPrice+=record.price
+	
+	if record.price<minPrice:
+	    minPrice=record.price
+	else:
+	    minPrice=minPrice
+	    
+	if record.price>maxPrice:
+	    maxPrice=record.price
+	else:
+	    maxPrice=maxPrice
+	    
+print 'min price: '+str(minPrice)
+print 'max price: ' +str(maxPrice)
+
+avePrice = tolPrice / len(records)
+
+print 'average price: '+str(avePrice)
 
 # [PRINT OUT THE RESULTING VALUES BY CONCATENATING THEM TO THESE LINES TO CHECK YOUR WORK]
 
