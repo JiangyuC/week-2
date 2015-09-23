@@ -64,8 +64,6 @@ avePrice = tolPrice / len(records)
 
 print 'average price: '+str(avePrice)
 
-# [PRINT OUT THE RESULTING VALUES BY CONCATENATING THEM TO THESE LINES TO CHECK YOUR WORK]
-
 print 'min price: '
 print 'max price: ' 
 print 'average price: '
